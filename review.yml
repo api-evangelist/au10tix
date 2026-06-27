@@ -1,0 +1,106 @@
+aid: au10tix
+name: AU10TIX
+review:
+  question: Does AU10TIX expose a documented, publicly accessible REST API?
+  answer: partial
+  date: '2026-06-25'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. AU10TIX delivers asynchronous results via
+    HTTP webhook callbacks and result polling, not via a documented WebSocket or
+    SSE streaming surface, and no public channel/message definitions are
+    available to model.
+findings:
+  summary: |
+    AU10TIX operates a real REST API — the Back Office Server, "BOS" — for
+    identity verification, document authentication, biometric face comparison /
+    liveness, and fraud detection, complemented by web and mobile SDKs. The
+    company markets a single-integration "all-in-one" API plus a 4-click
+    integration tool. However, AU10TIX does NOT publish a public, openly
+    accessible developer portal, API reference, or OpenAPI/Swagger definition.
+    Full API documentation (exact endpoint paths, request/response schemas, and
+    the OAuth2 token endpoint) is provided to onboarded customers and partners
+    under account, after sign-up and sales engagement. As a result, the catalog
+    artifacts capture verified, accurate metadata (products, regional base
+    hosts, authentication model, asynchronous workflow/session + results/webhook
+    pattern) without fabricating endpoint paths. The OpenAPI document therefore
+    uses paths:{} with an honest description and documented servers/security.
+  apiAvailability:
+    documentedPublicReference: false
+    publicOpenAPI: false
+    apiExists: true
+    sdks: true
+    note: >-
+      API and web/mobile SDKs are real and marketed; the reference is gated
+      behind account onboarding (and historically certificate provisioning).
+  authentication:
+    - method: OAuth2 Bearer (JWT)
+      note: Current BOS REST API uses an OAuth2 access token presented as a Bearer token.
+      documented: partial
+    - method: Certificate-based (mutual TLS)
+      note: >-
+        Legacy BOS integrations use a unique client certificate per calling
+        party (PFX provisioned by AU10TIX; converted to JKS for Java
+        connectors). Documented via partner integration guides (e.g. Temenos).
+      documented: true
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://eus-api.au10tixservices.com
+      documented: partial
+      note: >-
+        Regional service host decoded from AU10TIX Secure.me launch URLs.
+        Legacy regional BOS hosts (https://euxbos.cloudapp.net/Au10tixBos2/,
+        https://usxbos.cloudapp.net/Au10tixBos2/) are documented in partner
+        integration guides.
+    - protocol: Webhook
+      scheme: https
+      documented: partial
+      note: >-
+        Asynchronous result callbacks to a client-provided URL; also supports
+        result retrieval by polling a session/document identifier.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented for any AU10TIX product as of the review date.
+  productsConfirmed:
+    - Identity Verification (workflows/sessions, "BOS")
+    - Document Authentication (passports, driver's licenses, national IDs)
+    - Face Comparison (1:1) & Liveness / Deepfake Detection
+    - AML & Sanctions Screening
+    - Serial Fraud Monitor
+    - Business Verification (KYB)
+    - Reusable Digital ID / Microsoft Entra Verified ID integration
+    - Web & Mobile SDKs
+sources:
+  - url: https://www.au10tix.com/products/platform/
+    type: Documentation
+    note: Markets a single REST API plus web/mobile SDKs and a 4-click integration tool.
+  - url: https://www.au10tix.com/solutions/document-verification/
+    type: Documentation
+    note: Document authentication / verification capabilities.
+  - url: https://www.au10tix.com/solutions/sdk/
+    type: Documentation
+    note: Web SDK for seamless identity verification (capture, face/liveness).
+  - url: https://journey.temenos.com/images/exchange-packages/Au10tix-Readme.html
+    type: IntegrationGuide
+    note: >-
+      Partner (Temenos) BOS integration guide documenting certificate-based
+      auth, regional base URLs, and the initiate/get-result session model.
+  - url: https://learn.microsoft.com/en-us/entra/verified-id/howto-verifiable-credentials-partner-au10tix
+    type: IntegrationGuide
+    note: AU10TIX as a Microsoft Entra Verified ID IDV partner (API-based integration).
+  - url: https://en.wikipedia.org/wiki/AU10TIX
+    type: Reference
+    note: Company background, products, ownership (ICTS International), and history.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    AU10TIX has a real but account-gated REST API with no public OpenAPI. The
+    apis.yml documents five accurate API surfaces (Identity Verification /
+    Workflows & Sessions, Document Authentication, Face Comparison & Liveness,
+    Results, and Webhooks). The OpenAPI file is intentionally paths:{} to avoid
+    fabricating undocumented endpoints while still recording verified servers,
+    security schemes, and an accurate description.

@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AU10TIX API",
+    "version": "1.0",
+    "description": "AU10TIX REST API (Back Office Server, \"BOS\") for identity verification, document authentication, biometric face comparison and liveness, and fraud detection. Authentication uses an OAuth2 access token (JWT) as a Bearer token; legacy BOS integrations use a client certificate (mutual TLS). AU10TIX does not publish an open API reference or OpenAPI definition - exact endpoint paths and request/response schemas are provided to onboarded customers and partners under account, so no operation paths are enumerated below. Set the base URL to your region's host (for example https://eus-api.au10tixservices.com)."
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Identity Verification",
+        "type": "folder"
+      },
+      "docs": "Orchestrates identity verification workflows (the Back Office Server, \"BOS\"): create a session/workflow, submit document and selfie media, and receive a unique session/document identifier. Exact endpoint paths are account-gated and not publicly published.",
+      "items": [
+        {
+          "info": {
+            "name": "Create verification workflow/session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://eus-api.au10tixservices.com",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a verification workflow/session and returns a unique session/document identifier. Path is account-gated; configure per your AU10TIX onboarding documentation."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Document Authentication",
+        "type": "folder"
+      },
+      "docs": "Authenticates government-issued ID documents (passports, driver's licenses, national IDs) via structure checks, data integrity validation, and forensic analysis. Exact endpoint paths are account-gated.",
+      "items": [
+        {
+          "info": {
+            "name": "Authenticate ID document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://eus-api.au10tixservices.com",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submits document image(s) for authentication and field extraction. Path is account-gated; configure per your AU10TIX onboarding documentation."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Face Comparison & Liveness",
+        "type": "folder"
+      },
+      "docs": "Compares a selfie against the ID portrait (1:1 face match) and performs liveness/deepfake detection. Exact endpoint paths are account-gated.",
+      "items": [
+        {
+          "info": {
+            "name": "Face comparison & liveness",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://eus-api.au10tixservices.com",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submits a selfie (and reference portrait) for 1:1 comparison and liveness assessment. Path is account-gated; configure per your AU10TIX onboarding documentation."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Results & Webhooks",
+        "type": "folder"
+      },
+      "docs": "Retrieves the structured result of a verification session by identifier (polling) and/or receives asynchronous webhook callbacks on terminal states (e.g. VERIFIED, FAILED, REVIEW). Exact endpoint paths are account-gated.",
+      "items": [
+        {
+          "info": {
+            "name": "Get verification result",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eus-api.au10tixservices.com"
+          },
+          "docs": "Retrieves the result of a verification session by its identifier. Path is account-gated; configure per your AU10TIX onboarding documentation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

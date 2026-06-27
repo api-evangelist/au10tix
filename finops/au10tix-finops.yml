@@ -1,0 +1,111 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: AU10TIX
+providerId: au10tix
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Identity Verification
+- Document Authentication
+- KYC
+- Biometrics
+- Fraud Detection
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of AU10TIX spend. AU10TIX bills under sales-led enterprise
+  contracts, typically on a per-verification (per-transaction) basis with volume
+  commitments, priced by product mix (document authentication, identity
+  verification, face comparison / liveness, AML & sanctions screening, serial
+  fraud monitoring, business verification), region, and term. List prices and
+  per-check rates are not published publicly and are therefore not reconciled.
+notes: >-
+  No public pricing exists; obtain per-transaction rates and commitments from
+  AU10TIX sales. Track verification volume per product and per workflow to
+  allocate spend during reconciliation.
+sources:
+- https://www.au10tix.com/products/platform/
+- https://www.au10tix.com/how-to-get-verified-with-au10tix/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: AU10TIX
+serviceCategory: Identity and Fraud
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: AU10TIX Platform
+  ServiceCategory: Identity and Fraud
+  ProviderName: AU10TIX
+  PublisherName: AU10TIX
+  InvoiceIssuerName: AU10TIX
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: identity_verifications
+  description: Completed identity verification sessions/workflows, billed per verification.
+  unit: verifications
+  aggregation: sum
+  dimensions:
+  - account
+  - workflow
+- name: document_authentications
+  description: Document authentication checks performed, billed per check.
+  unit: checks
+  aggregation: sum
+  dimensions:
+  - account
+  - document_type
+- name: face_liveness_checks
+  description: Face comparison (1:1) and liveness/deepfake checks, billed per check.
+  unit: checks
+  aggregation: sum
+  dimensions:
+  - account
+- name: aml_screening_checks
+  description: AML and sanctions/watchlist screening checks, billed per check.
+  unit: checks
+  aggregation: sum
+  dimensions:
+  - account
+- name: serial_fraud_monitor_checks
+  description: Serial Fraud Monitor evaluations for coordinated fraud detection.
+  unit: checks
+  aggregation: sum
+  dimensions:
+  - account
+- name: business_verifications
+  description: Business (KYB) verification checks, billed per check.
+  unit: checks
+  aggregation: sum
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Track verification volume per product and per workflow against the contracted commitment.
+- name: Allocation
+  description: Tag API credentials/workflows per team or use case; map to internal cost centers.
+- name: Optimization
+  description: >-
+    Right-size the product mix per use case (e.g. document-only vs. document +
+    biometric), and avoid redundant checks by reusing prior verification results
+    where policy allows.
+- name: Accountability
+  description: Assign owners per integration; review verification spend against the committed volume each period.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

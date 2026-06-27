@@ -1,0 +1,63 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: AU10TIX
+providerId: au10tix
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Identity Verification
+- Document Authentication
+- KYC
+- Biometrics
+- Fraud Detection
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  AU10TIX does not publish public rate-limit values for its BOS REST API.
+  Throughput, concurrency, and request quotas are governed by the customer's
+  contract and provisioned capacity and are coordinated with AU10TIX during
+  onboarding. The verification workflow is asynchronous: a session is created,
+  media is submitted, and results are retrieved by polling the result endpoint
+  (with retry/backoff) or via webhook callback. Specific RPM/RPS/concurrency
+  values are not reconciled in this artifact.
+notes: >-
+  No public rate-limit documentation is available. Confirm per-account
+  throughput, concurrency caps, polling intervals, and burst allowances with
+  AU10TIX during reconciliation.
+sources:
+- https://www.au10tix.com/products/platform/
+- https://journey.temenos.com/images/exchange-packages/Au10tix-Readme.html
+responseCodes:
+  throttled: 429
+limits:
+- name: Requests / Throughput
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Per-account throughput is contract- and capacity-governed; not publicly disclosed.
+- name: Concurrency
+  scope: account
+  metric: concurrent_sessions
+  limit: see provider documentation
+  notes: Concurrent verification sessions are governed by provisioned capacity.
+- name: Result Polling
+  scope: session
+  metric: requests
+  limit: see provider documentation
+  notes: >-
+    Result retrieval is polled with retry/backoff (legacy BOS Maestro components
+    documented ~3s retry up to ~30s, configurable) or delivered via webhook.
+policies:
+- name: Asynchronous Workflow
+  description: >-
+    Verification is asynchronous; clients create a session, then poll for a
+    terminal result or receive a webhook callback rather than blocking on a
+    single synchronous call.
+- name: Backoff Strategy
+  description: Clients should poll with retry/backoff and honor Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

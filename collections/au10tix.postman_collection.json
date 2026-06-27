@@ -1,0 +1,207 @@
+{
+  "item": [
+    {
+      "id": "a10t-iv-folder",
+      "name": "Identity Verification",
+      "description": {
+        "content": "Orchestrates identity verification workflows (the Back Office Server, \"BOS\"): create a verification session/workflow, submit document and selfie media, and receive a unique session/document identifier. Exact endpoint paths are provided to onboarded AU10TIX customers/partners under account and are not publicly published.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a10t-iv-create-session",
+          "name": "Create verification workflow/session",
+          "request": {
+            "name": "Create verification workflow/session",
+            "description": {
+              "content": "Creates a verification workflow/session and returns a unique session/document identifier. Path is account-gated; configure per your AU10TIX onboarding documentation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearerToken}}"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "a10t-doc-folder",
+      "name": "Document Authentication",
+      "description": {
+        "content": "Authenticates government-issued ID documents (passports, driver's licenses, national IDs) via document structure checks, data integrity validation, and digital forensic analysis. Exact endpoint paths are account-gated.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a10t-doc-authenticate",
+          "name": "Authenticate ID document",
+          "request": {
+            "name": "Authenticate ID document",
+            "description": {
+              "content": "Submits document image(s) for authentication and field extraction. Path is account-gated; configure per your AU10TIX onboarding documentation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearerToken}}"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "a10t-face-folder",
+      "name": "Face Comparison & Liveness",
+      "description": {
+        "content": "Compares a selfie against the ID portrait (1:1 face match) and performs liveness/deepfake detection. Exact endpoint paths are account-gated.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a10t-face-compare",
+          "name": "Face comparison & liveness",
+          "request": {
+            "name": "Face comparison & liveness",
+            "description": {
+              "content": "Submits a selfie (and reference portrait) for 1:1 comparison and liveness assessment. Path is account-gated; configure per your AU10TIX onboarding documentation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearerToken}}"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "a10t-results-folder",
+      "name": "Results & Webhooks",
+      "description": {
+        "content": "Retrieves the structured result of a verification session by identifier (polling) and/or receives asynchronous webhook callbacks on terminal states (e.g. VERIFIED, FAILED, REVIEW). Exact endpoint paths are account-gated.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a10t-results-get",
+          "name": "Get verification result",
+          "request": {
+            "name": "Get verification result",
+            "description": {
+              "content": "Retrieves the result of a verification session by its identifier. Path is account-gated; configure per your AU10TIX onboarding documentation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearerToken}}"
+              }
+            ],
+            "method": "GET"
+          }
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eus-api.au10tixservices.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a10t1x00-0000-4000-8000-000000000001",
+    "name": "AU10TIX API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AU10TIX REST API (Back Office Server, \"BOS\") for identity verification, document authentication, face comparison/liveness, and results/webhooks. AU10TIX does not publish a public OpenAPI or developer reference; exact endpoint paths and the OAuth2 token endpoint are provided to onboarded customers/partners under account. This collection captures the verified base host, OAuth2 bearer auth, and the product/workflow structure only.\n\nContact: AU10TIX (https://www.au10tix.com/company/contact-us/)",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,126 @@
+aid: au10tix
+url: https://raw.githubusercontent.com/api-evangelist/au10tix/refs/heads/main/apis.yml
+name: AU10TIX
+kind: company
+description: AU10TIX is an identity verification and document authentication provider
+  delivering KYC, document analysis, biometric face comparison, liveness, and fraud
+  detection through a single REST API (the Back Office Server, "BOS") and web/mobile
+  SDKs. The platform orchestrates verification workflows/sessions, returns structured
+  results, and notifies clients via webhooks.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Identity Verification
+- Document Authentication
+- KYC
+- Biometrics
+- Fraud Detection
+created: '2026-06-25'
+modified: '2026-06-25'
+specificationVersion: '0.19'
+apis:
+- aid: au10tix:au10tix-identity-verification-api
+  name: AU10TIX Identity Verification API
+  tags:
+  - Identity Verification
+  - Workflows
+  - Sessions
+  - KYC
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.au10tix.com/products/platform/
+  baseURL: https://eus-api.au10tixservices.com
+  properties:
+  - url: https://www.au10tix.com/products/platform/
+    type: Documentation
+  - url: openapi/au10tix-openapi.yml
+    type: OpenAPI
+  description: Orchestrates identity verification workflows (the Back Office Server,
+    "BOS"). Creates a verification session/workflow, accepts document and selfie media,
+    and returns a unique session/document identifier used to retrieve results. Authentication
+    is OAuth2 (bearer/JWT) or certificate-based depending on integration.
+- aid: au10tix:au10tix-document-authentication-api
+  name: AU10TIX Document Authentication API
+  tags:
+  - Document Authentication
+  - OCR
+  - ID Documents
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.au10tix.com/solutions/document-verification/
+  baseURL: https://eus-api.au10tixservices.com
+  properties:
+  - url: https://www.au10tix.com/solutions/document-verification/
+    type: Documentation
+  - url: openapi/au10tix-openapi.yml
+    type: OpenAPI
+  description: Authenticates government-issued ID documents (passports, driver's licenses,
+    national ID cards) using document structure checks, data integrity validation,
+    and digital forensic analysis, returning extracted fields and an authenticity
+    verdict.
+- aid: au10tix:au10tix-face-liveness-api
+  name: AU10TIX Face Comparison & Liveness API
+  tags:
+  - Biometrics
+  - Face Comparison
+  - Liveness
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.au10tix.com/solutions/sdk/
+  baseURL: https://eus-api.au10tixservices.com
+  properties:
+  - url: https://www.au10tix.com/solutions/sdk/
+    type: Documentation
+  - url: openapi/au10tix-openapi.yml
+    type: OpenAPI
+  description: Compares a captured selfie against the portrait on a verified ID document
+    (1:1 face match) and performs passive/active liveness and deepfake detection to
+    confirm a genuine, present person.
+- aid: au10tix:au10tix-results-api
+  name: AU10TIX Results API
+  tags:
+  - Results
+  - Decisions
+  - Polling
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.au10tix.com/products/platform/
+  baseURL: https://eus-api.au10tixservices.com
+  properties:
+  - url: https://www.au10tix.com/products/platform/
+    type: Documentation
+  - url: openapi/au10tix-openapi.yml
+    type: OpenAPI
+  description: Retrieves the structured result of a verification session by its
+    session/document identifier (polling with retry/backoff), returning the
+    verification status (e.g. VERIFIED, FAILED, REVIEW) and the consolidated result
+    payload.
+- aid: au10tix:au10tix-webhooks-api
+  name: AU10TIX Webhooks API
+  tags:
+  - Webhooks
+  - Callbacks
+  - Events
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.au10tix.com/company/integrations/
+  baseURL: https://eus-api.au10tixservices.com
+  properties:
+  - url: https://www.au10tix.com/company/integrations/
+    type: Documentation
+  - url: openapi/au10tix-openapi.yml
+    type: OpenAPI
+  description: Pushes verification decisions to a customer-registered callback URL
+    the moment a workflow reaches a terminal state, removing the need to poll for
+    status. Payload schemas are documented in AU10TIX's authenticated developer
+    portal.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/au10tix
+- type: Website
+  url: https://www.au10tix.com
+- type: Documentation
+  url: https://www.au10tix.com/products/platform/
+- type: Plans
+  url: plans/au10tix-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/au10tix-rate-limits.yml
+- type: FinOps
+  url: finops/au10tix-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

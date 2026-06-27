@@ -1,0 +1,109 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: AU10TIX
+providerId: au10tix
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Identity Verification
+- Document Authentication
+- KYC
+- Biometrics
+- Fraud Detection
+- Plans
+description: >-
+  AU10TIX pricing is sales-led and not publicly published. Plans are quoted per
+  customer based on verification volume, the mix of products consumed (document
+  authentication, identity verification, face comparison / liveness, AML &
+  sanctions screening, serial fraud monitoring, business verification), region,
+  and contract term. Engagements are typically annual contracts with
+  per-verification (per-transaction) usage pricing and volume commitments.
+  Specific list prices, per-check rates, and free-tier details are not disclosed
+  publicly and are therefore not reconciled in this artifact.
+notes: >-
+  No public pricing page exists; figures must be obtained from AU10TIX sales.
+  Verify per-product per-transaction rates, minimum commitments, and any
+  trial/sandbox terms directly with AU10TIX during reconciliation.
+sources:
+- https://www.au10tix.com/products/platform/
+- https://www.au10tix.com/how-to-get-verified-with-au10tix/
+- https://www.au10tix.com/company/contact-us/
+plans:
+- id: au10tix-enterprise
+  name: Enterprise (Sales-Led)
+  type: enterprise
+  description: >-
+    Custom enterprise agreement negotiated with AU10TIX sales. Pricing is based
+    on verification volume and the selected mix of products, with volume
+    commitments and negotiated per-transaction rates. Contact AU10TIX sales.
+  entries:
+  - label: Identity Verification
+    name: identity_verification
+    type: usage
+    metric: verifications
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  - label: Document Authentication
+    name: document_authentication
+    type: usage
+    metric: checks
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  - label: Face Comparison & Liveness
+    name: face_liveness
+    type: usage
+    metric: checks
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  - label: AML & Sanctions Screening
+    name: aml_screening
+    type: usage
+    metric: checks
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  - label: Serial Fraud Monitor
+    name: serial_fraud_monitor
+    type: usage
+    metric: checks
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  - label: Business Verification
+    name: business_verification
+    type: usage
+    metric: checks
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Custom Volume Pricing
+  - name: Per-Verification Usage Pricing
+  - name: API & Web/Mobile SDK Access
+  - name: Dedicated Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
