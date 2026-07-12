@@ -109,6 +109,10 @@ apis:
     status. Payload schemas are documented in AU10TIX's authenticated developer
     portal.
 common:
+- type: DomainSecurity
+  url: security/au10tix-domain-security.yml
+- type: Authentication
+  url: authentication/au10tix-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/au10tix
 - type: Website
@@ -121,6 +125,8 @@ common:
   url: rate-limits/au10tix-rate-limits.yml
 - type: FinOps
   url: finops/au10tix-finops.yml
+- url: https://www.au10tix.com/blog/
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

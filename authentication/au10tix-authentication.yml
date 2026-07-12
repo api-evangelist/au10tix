@@ -1,0 +1,28 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/au10tix-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: OAuth2 access token (JWT) presented as a Bearer token in the Authorization header
+    on each request to the current BOS REST API.
+  sources:
+  - openapi/au10tix-openapi.yml
+- name: clientCertificate
+  type: apiKey
+  in: header
+  parameter: X-Client-Certificate
+  description: Legacy BOS integrations are secured by certificate-based authentication (mutual
+    TLS); AU10TIX issues a unique client certificate to each calling party. Represented here
+    as a security scheme placeholder because mutual TLS is configured at the transport layer
+    rather than in a request header.
+  sources:
+  - openapi/au10tix-openapi.yml
