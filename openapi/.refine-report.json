@@ -1,0 +1,14 @@
+{
+  "provider": "au10tix",
+  "sources": [
+    "au10tix-openapi.yml"
+  ],
+  "outputs": [],
+  "archived": [
+    "archived au10tix-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
