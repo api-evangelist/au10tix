@@ -44,7 +44,7 @@ apis:
   properties:
   - url: https://www.au10tix.com/products/platform/
     type: Documentation
-  - url: openapi/au10tix-openapi.yml
+  - url: openapi/_original/au10tix-openapi.yml
     type: OpenAPI
   description: Orchestrates identity verification workflows (the Back Office Server,
     "BOS"). Creates a verification session/workflow, accepts document and selfie media,
@@ -62,7 +62,7 @@ apis:
   properties:
   - url: https://www.au10tix.com/solutions/document-verification/
     type: Documentation
-  - url: openapi/au10tix-openapi.yml
+  - url: openapi/_original/au10tix-openapi.yml
     type: OpenAPI
   description: Authenticates government-issued ID documents (passports, driver's licenses,
     national ID cards) using document structure checks, data integrity validation,
@@ -80,7 +80,7 @@ apis:
   properties:
   - url: https://www.au10tix.com/solutions/sdk/
     type: Documentation
-  - url: openapi/au10tix-openapi.yml
+  - url: openapi/_original/au10tix-openapi.yml
     type: OpenAPI
   description: Compares a captured selfie against the portrait on a verified ID document
     (1:1 face match) and performs passive/active liveness and deepfake detection to
@@ -97,7 +97,7 @@ apis:
   properties:
   - url: https://www.au10tix.com/products/platform/
     type: Documentation
-  - url: openapi/au10tix-openapi.yml
+  - url: openapi/_original/au10tix-openapi.yml
     type: OpenAPI
   description: Retrieves the structured result of a verification session by its
     session/document identifier (polling with retry/backoff), returning the
@@ -115,7 +115,7 @@ apis:
   properties:
   - url: https://www.au10tix.com/company/integrations/
     type: Documentation
-  - url: openapi/au10tix-openapi.yml
+  - url: openapi/_original/au10tix-openapi.yml
     type: OpenAPI
   description: Pushes verification decisions to a customer-registered callback URL
     the moment a workflow reaches a terminal state, removing the need to poll for
