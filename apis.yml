@@ -106,6 +106,10 @@ apis:
 - aid: au10tix:au10tix-webhooks-api
   name: AU10TIX Webhooks API
   tags:
+  - Webhook
+  - Callbacks
+  - Event
+  tags_raw:
   - Webhooks
   - Callbacks
   - Events
