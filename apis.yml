@@ -7,6 +7,17 @@ description: AU10TIX is an identity verification and document authentication pro
   detection through a single REST API (the Back Office Server, "BOS") and web/mobile
   SDKs. The platform orchestrates verification workflows/sessions, returns structured
   results, and notifies clients via webhooks.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
