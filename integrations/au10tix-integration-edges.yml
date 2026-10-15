@@ -3,6 +3,9 @@ method: searched
 checked:
 - https://aws.amazon.com/marketplace/
 - https://azuremarketplace.microsoft.com/
+- https://kantarainitiative.org/trust-status-list/
+- https://msb.fincen.gov/
+- https://www.access-dvs-register.service.gov.uk/register/download-register
 marketplace_apps: []
 edges:
 - partner_name: AWS Marketplace
@@ -36,3 +39,78 @@ edges:
   seller_name: Au10tix
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: UK DVS register (DSIT)
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.access-dvs-register.service.gov.uk/register/service-details?serviceId=284
+  category: Digital identity verification
+  contract_reference:
+    register: UK digital verification services register (DIATF; access-dvs-register.service.gov.uk)
+    spec_file: null
+    standard: UK DIATF (digital verification services)
+    role: dvs-registered
+    registered_name: AU10TIX Ltd
+    trading_name: Not applicable
+    register_id: AU10TIX Ltd
+    website: www.au10tix.com
+    matched_domain: au10tix.com
+    matched_by: domain
+    certified_products:
+    - product: Identity service
+      newest_expiry: '2028-12-29'
+      lapsed: false
+    dvs_services:
+    - Identity Document Verification Suite
+    conformity_assessment_bodies:
+    - Kantara
+    signal_note: certified_products = one entry per ROLE certified (identity / attribute / orchestration...), lapsed
+      when every certificate for the role has expired; services and schemes are context
+    detected_by: sweep-regtech-aml.py
+    detected: '2026-10-15'
+  detected_by: sweep-regtech-aml.py
+  first_seen: '2026-10-15'
+- partner_name: Kantara Initiative (Trust Status List)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://kantarainitiative.org/trust-status-list/
+  category: Identity assurance certification
+  contract_reference:
+    register: Kantara Initiative Trust Status List (kantarainitiative.org/trust-status-list)
+    spec_file: null
+    standard: Kantara Identity Assurance (NIST SP 800-63)
+    role: kantara-approved-service
+    registered_name: AU10TIX
+    register_id: AU10TIX
+    website: https://www.au10tix.com
+    matched_domain: au10tix.com
+    matched_by: domain
+    kantara_services:
+    - service: IDV Service
+      scheme: NIST 800-63 rev.3 (Technical)
+      assurance_levels: IAL2
+      status: Good Standing - Affirmed 2026
+      approval: IAF-Approval-24.04-KI
+      expiry: '2027-07-31'
+      table: component_services
+    signal_note: certified_products = one entry per approved service TYPE (Full / Component / Classic), lapsed unless
+      Good Standing and inside the triennial approval; registered applicants are participation only; services and
+      assurance levels are context
+    detected_by: sweep-regtech-aml.py
+    detected: '2026-10-15'
+    certified_products:
+    - product: Partial Service - Not All Applicable Criteria In Scope
+      lapsed: false
+  detected_by: sweep-regtech-aml.py
+  first_seen: '2026-10-15'
+source:
+- https://msb.fincen.gov/
+- https://www.access-dvs-register.service.gov.uk/register/download-register
+- https://kantarainitiative.org/trust-status-list/
