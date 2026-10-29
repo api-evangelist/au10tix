@@ -1,4 +1,4 @@
-# AU10TIX (au10tix)
+# AU10TIX
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,134 +66,112 @@
 
 AU10TIX is an identity verification and document authentication provider delivering KYC, document analysis, biometric face comparison, liveness, and fraud detection through a single REST API (the Back Office Server, "BOS") and web/mobile SDKs. The platform orchestrates verification workflows/sessions, returns structured results, and notifies clients via webhooks.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/au10tix/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/au10tix/refs/heads/main/apis.yml)
+**Areas:** Identity Verification · Document Authentication · KYC · Biometrics · Fraud Prevention
 
-## Tags
+## AU10TIX on APIs.io
 
-- Identity Verification
-- Document Authentication
-- KYC
-- Biometrics
-- Fraud Detection
+Everything profiled for AU10TIX is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/au10tix/](https://apis.io/providers/au10tix/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (5)
 
-- **Created:** 2026-06-25
-- **Modified:** 2026-06-25
+- [AU10TIX Identity Verification API](https://apis.io/apis/au10tix/au10tix-identity-verification-api/) — Orchestrates identity verification workflows (the Back Office Server, "BOS"). Creates a verification session/workflow, accepts document and selfie media,…
+- [AU10TIX Document Authentication API](https://apis.io/apis/au10tix/au10tix-document-authentication-api/) — Authenticates government-issued ID documents (passports, driver's licenses, national ID cards) using document structure checks, data integrity validation,…
+- [AU10TIX Face Comparison & Liveness API](https://apis.io/apis/au10tix/au10tix-face-liveness-api/) — Compares a captured selfie against the portrait on a verified ID document (1:1 face match) and performs passive/active liveness and deepfake detection to…
+- [AU10TIX Results API](https://apis.io/apis/au10tix/au10tix-results-api/) — Retrieves the structured result of a verification session by its session/document identifier (polling with retry/backoff), returning the verification status…
+- [AU10TIX Webhooks API](https://apis.io/apis/au10tix/au10tix-webhooks-api/) — Pushes verification decisions to a customer-registered callback URL the moment a workflow reaches a terminal state, removing the need to poll for status.…
 
-## APIs
+### Published properties
 
-### AU10TIX Identity Verification API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Orchestrates identity verification workflows (the Back Office Server, "BOS"). Creates a verification session/workflow, accepts document and selfie media, and returns a unique session/document identifier used to retrieve results. Authentication is OAuth2 (bearer/JWT) or certificate-based depending on integration.
+#### Collections (1)
 
-- **Human URL:** [https://www.au10tix.com/products/platform/](https://www.au10tix.com/products/platform/)
-- **Base URL:** `https://eus-api.au10tixservices.com`
+Postman and Open Collection request collections.
 
-#### Tags
+- [AU10TIX API](https://apis.io/collections/au10tix/open-au10tix/)
 
-- Identity Verification
-- Workflows
-- Sessions
-- KYC
+#### Security (2)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://www.au10tix.com/products/platform/)
-- [OpenAPI](openapi/au10tix-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/au10tix.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/au10tix.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Au10Tix Authentication](https://apis.io/security/au10tix/au10tix-authentication/)
+- [Au10Tix Domain Security](https://apis.io/security/au10tix/au10tix-domain-security/)
 
-### AU10TIX Document Authentication API
+#### Plans and pricing (1)
 
-Authenticates government-issued ID documents (passports, driver's licenses, national ID cards) using document structure checks, data integrity validation, and digital forensic analysis, returning extracted fields and an authenticity verdict.
+Published plans, tiers and prices.
 
-- **Human URL:** [https://www.au10tix.com/solutions/document-verification/](https://www.au10tix.com/solutions/document-verification/)
-- **Base URL:** `https://eus-api.au10tixservices.com`
+- [Au10Tix Plans Pricing](https://apis.io/plans/au10tix/au10tix-plans-pricing/)
 
-#### Tags
+#### Rate limits (1)
 
-- Document Authentication
-- OCR
-- ID Documents
+Published request limits.
 
-#### Properties
+- [Au10Tix Rate Limits](https://apis.io/rate-limits/au10tix/au10tix-rate-limits/)
 
-- [Documentation](https://www.au10tix.com/solutions/document-verification/)
-- [OpenAPI](openapi/au10tix-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/au10tix.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/au10tix.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### FinOps (1)
 
-### AU10TIX Face Comparison & Liveness API
+What the API costs to run, by operation.
 
-Compares a captured selfie against the portrait on a verified ID document (1:1 face match) and performs passive/active liveness and deepfake detection to confirm a genuine, present person.
+- [Au10Tix Finops](https://apis.io/finops/au10tix/au10tix-finops/)
 
-- **Human URL:** [https://www.au10tix.com/solutions/sdk/](https://www.au10tix.com/solutions/sdk/)
-- **Base URL:** `https://eus-api.au10tixservices.com`
+## Where to find this API
 
-#### Tags
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- Biometrics
-- Face Comparison
-- Liveness
-
-#### Properties
-
-- [Documentation](https://www.au10tix.com/solutions/sdk/)
-- [OpenAPI](openapi/au10tix-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/au10tix.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/au10tix.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### AU10TIX Results API
-
-Retrieves the structured result of a verification session by its session/document identifier (polling with retry/backoff), returning the verification status (e.g. VERIFIED, FAILED, REVIEW) and the consolidated result payload.
-
-- **Human URL:** [https://www.au10tix.com/products/platform/](https://www.au10tix.com/products/platform/)
-- **Base URL:** `https://eus-api.au10tixservices.com`
-
-#### Tags
-
-- Results
-- Decisions
-- Polling
-
-#### Properties
-
-- [Documentation](https://www.au10tix.com/products/platform/)
-- [OpenAPI](openapi/au10tix-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/au10tix.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/au10tix.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### AU10TIX Webhooks API
-
-Pushes verification decisions to a customer-registered callback URL the moment a workflow reaches a terminal state, removing the need to poll for status. Payload schemas are documented in AU10TIX's authenticated developer portal.
-
-- **Human URL:** [https://www.au10tix.com/company/integrations/](https://www.au10tix.com/company/integrations/)
-- **Base URL:** `https://eus-api.au10tixservices.com`
-
-#### Tags
-
-- Webhooks
-- Callbacks
-- Events
-
-#### Properties
-
-- [Documentation](https://www.au10tix.com/company/integrations/)
-- [OpenAPI](openapi/au10tix-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/au10tix.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/au10tix.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/au10tix)
 - [Website](https://www.au10tix.com)
 - [Documentation](https://www.au10tix.com/products/platform/)
-- [Plans](plans/au10tix-plans-pricing.yml)
-- [Rate Limits](rate-limits/au10tix-rate-limits.yml)
-- [Fin Ops](finops/au10tix-finops.yml)
+- [Blog](https://www.au10tix.com/blog/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 19.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 29.4 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 5.3 |
+
+**Agent readiness 16.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.3** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/au10tix/](https://apis.io/providers/au10tix/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for AU10TIX: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/au10tix/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
